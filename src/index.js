@@ -12,7 +12,7 @@ const client = new Client({
 });
 
 client.on("ready", (c) => {
-  console.log(`${c.user.tag} está pronto para bora bilar!`);
+  console.log(`${c.user.tag} estou pronto!`);
 });
 
 client.on("interactionCreate", async (interaction) => {
@@ -103,14 +103,6 @@ client.on("interactionCreate", async (interaction) => {
   }
 });
 
-client.on("messageCreate", (message) => {
-  if (message.content.toLowerCase() === "bora bill") {
-    message.reply("BORA FÍ DO BILL!!!");
-  } else if (message.content.toLowerCase() === "bora") {
-    message.reply("*# B I L L!!!*");
-  }
-});
-
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
@@ -142,7 +134,7 @@ function rolagemMD(total, resultado) {
 
   for (let i = 0; i < total; i++) {
     let valorAtual = dado();
-    if (i === total - 1) {
+    if (i >= total - 2) {
       let dragonDie = 0;
       dragonDie += valorAtual;
       if (valorAtual === 6) {
